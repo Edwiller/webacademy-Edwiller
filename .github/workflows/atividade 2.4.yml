@@ -1,0 +1,35 @@
+name: Quarto Workflow
+
+on:
+  push:
+
+jobs:
+  quarto-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Quarto passo"
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Verifica README.md
+        run: |
+          if [ ! -f README.md ]; then
+            echo "ERRO: README.md não encontrado!"
+            exit 1
+          fi
+          echo "README.md OK"
+
+      - name: Verifica LICENSE
+        run: |
+          if [ ! -f LICENSE ]; then
+            echo "ERRO: LICENSE não encontrado!"
+            exit 1
+          fi
+          echo "LICENSE OK"
+
+      - name: Verifica .gitignore
+        run: |
+          if [ ! -f .gitignore ]; then
+            echo "ERRO: .gitignore não encontrado!"
+            exit 1
+          fi
+          echo ".gitignore OK"
