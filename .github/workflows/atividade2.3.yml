@@ -3,6 +3,9 @@ name: Terceiro Workflow
 on:
   push:
 
+env:
+  CURSO: Integração Contínua
+
 jobs:
   terceiro-job:
     runs-on: ubuntu-latest
