@@ -33,3 +33,5 @@ jobs:
             exit 1
           fi
           echo ".gitignore OK"
+      - name: Status
+        run: echo "Status ${{ job.status }}."
