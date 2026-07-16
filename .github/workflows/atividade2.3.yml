@@ -1,13 +1,13 @@
-name: Segundo Workflow
+name: Terceiro Workflow
 
 on:
   push:
 
 jobs:
-  segundo-job:
+  terceiro-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Segundo passo"
+      - run: echo "Terceiro passo"
       - name: Checkout
         uses: actions/checkout@v5
       - name: Lista arquivos
@@ -22,5 +22,9 @@ jobs:
         run: cat README.md
       - name: Lista arquivos novamente
         run: ls ${{ github.workspace }}
+      - name: Exibe variáveis
+        run: echo "Nome do curso ${{ env.CURSO }}"
+             echo "Usuário ${{ github.actor }}"
+             echo "RepositóriO ${{ github.repository }}"
       - name: Status
         run: echo "Status ${{ job.status }}."
